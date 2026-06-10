@@ -6,8 +6,8 @@ import gui.MainFrame;
 public class Main {
 
 	public static void main(String[] args) {
-		 BST<Integer> bst = new BST<>();
-		 MainFrame frame = new MainFrame();
+		BST<Integer> bst = new BST<>();
+		MainFrame frame = new MainFrame();
 	}
 
 }
