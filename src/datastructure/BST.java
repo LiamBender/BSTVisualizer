@@ -5,6 +5,9 @@ package datastructure;
  * 
  * @param <T> the specific type of element stored in the tree.
  * Must implement Comparable.
+ * 
+ * @author Liam Bendiksen
+ * @since 2026-06-10
  */
 
 public class BST<T extends Comparable<? super T>> implements BSTInterface<T>  {
