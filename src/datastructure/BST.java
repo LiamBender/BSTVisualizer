@@ -12,10 +12,22 @@ package datastructure;
 
 public class BST<T extends Comparable<? super T>> implements BSTInterface<T> {
 
-	private class BSTNode {
+	public class BSTNode {
 		T item;
 		BSTNode r;
 		BSTNode l;
+
+		public T getItem() {
+			return item;
+		}
+
+		public BSTNode getLeft() {
+			return l;
+		}
+
+		public BSTNode getRight() {
+			return r;
+		}
 	}
 
 	private BSTNode root;
@@ -301,4 +313,15 @@ public class BST<T extends Comparable<? super T>> implements BSTInterface<T> {
 		size = 0;
 	}
 
+	public BSTNode getRoot() {
+		return root;
+	}
+
+	public T getRootItem() {
+		if (root == null) {
+			return null;
+		}
+
+		return root.item;
+	}
 }
