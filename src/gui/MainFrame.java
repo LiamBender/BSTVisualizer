@@ -68,6 +68,14 @@ public class MainFrame extends JFrame {
 			treePanel.zoomOut();
 		});
 
+		controlPanel.getFindMaxButton().addActionListener(e -> {
+			JOptionPane.showMessageDialog(this, "The largest number is: " + bst.findMax());
+		});
+
+		controlPanel.getFindMinButton().addActionListener(e -> {
+			JOptionPane.showMessageDialog(this, "The smallest number is: " + bst.findMin());
+		});
+
 		setVisible(true);
 	}
 }

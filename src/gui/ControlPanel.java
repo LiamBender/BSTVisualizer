@@ -12,6 +12,8 @@ public class ControlPanel extends JPanel {
 	private JButton clearButton;
 	private JButton zoomInButton;
 	private JButton zoomOutButton;
+	private JButton findMaxButton;
+	private JButton findMinButton;
 
 	public ControlPanel() {
 		inputField = new JTextField(10);
@@ -20,6 +22,8 @@ public class ControlPanel extends JPanel {
 		clearButton = new JButton("Clear");
 		zoomInButton = new JButton("+");
 		zoomOutButton = new JButton("-");
+		findMaxButton = new JButton("Max");
+		findMinButton = new JButton("Min");
 
 		add(inputField);
 		add(addButton);
@@ -27,6 +31,8 @@ public class ControlPanel extends JPanel {
 		add(clearButton);
 		add(zoomInButton);
 		add(zoomOutButton);
+		add(findMaxButton);
+		add(findMinButton);
 
 	}
 
@@ -52,6 +58,14 @@ public class ControlPanel extends JPanel {
 
 	public JButton getZoomOutButton() {
 		return zoomOutButton;
+	}
+	
+	public JButton getFindMaxButton() {
+		return findMaxButton;
+	}
+	
+	public JButton getFindMinButton() {
+		return findMinButton;
 	}
 
 }
