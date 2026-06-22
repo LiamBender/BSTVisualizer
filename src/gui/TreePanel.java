@@ -29,11 +29,18 @@ public class TreePanel extends JPanel {
 		drawNode(g2, bst.getRoot(), 0, 0, getWidth() / 4);
 	}
 
+	/**
+	 * Zooms in the tree visualization, increasing the zoom level by 10% each time.
+	 */
 	public void zoomIn() {
 		zoom += 0.1;
 		repaint();
 	}
 
+	/**
+	 * Zooms out the tree visualization, decreasing the zoom level by 10% each time.
+	 * The zoom level will not go below 0.2 to prevent the tree from becoming too small.
+	 */
 	public void zoomOut() {
 		if (zoom > 0.2) {
 			zoom -= 0.1;
@@ -41,6 +48,15 @@ public class TreePanel extends JPanel {
 		}
 	}
 
+	/**
+	 * Recursively draws the nodes of the Binary Search Tree.
+	 * 
+	 * @param g      the Graphics object to draw on
+	 * @param node   the current node being drawn
+	 * @param x      the x-coordinate of the current node
+	 * @param y      the y-coordinate of the current node
+	 * @param offset the horizontal distance to child nodes
+	 */
 	private void drawNode(Graphics g, BST<Integer>.BSTNode node, int x, int y, int offset) {
 		if (node == null) {
 			return;

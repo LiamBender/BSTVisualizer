@@ -17,14 +17,29 @@ public class BST<T extends Comparable<? super T>> implements BSTInterface<T> {
 		BSTNode r;
 		BSTNode l;
 
+		/**
+		 * Returns the item stored in this node.
+		 * 
+		 * @return the item stored in this node
+		 */
 		public T getItem() {
 			return item;
 		}
 
+		/**
+		 * Returns the left child of this node.
+		 * 
+		 * @return the left child, or null if there is no left child
+		 */
 		public BSTNode getLeft() {
 			return l;
 		}
 
+		/**
+		 * Returns the right child of this node.
+		 * 
+		 * @return the right child, or null if there is no right child
+		 */
 		public BSTNode getRight() {
 			return r;
 		}
@@ -34,7 +49,7 @@ public class BST<T extends Comparable<? super T>> implements BSTInterface<T> {
 	private int size;
 
 	/**
-	 * Adds a new item to the Binary Search Tree
+	 * Adds a new item to the Binary Search Tree.
 	 * 
 	 * if the item is less than or equal to the current node, it is inserted into
 	 * the left subtree. Otherwise it is inserted into the right subtree.
@@ -240,6 +255,30 @@ public class BST<T extends Comparable<? super T>> implements BSTInterface<T> {
 		System.out.println(node.item);
 		printInOrderRecursive(node.r);
 	}
+	
+	/**
+	 * Returns a string representation of the Binary Search Tree using the inorder
+	 * traversal.
+	 * 
+	 * Traversal order: left -> root -> right
+	 * 
+	 * @return a string representation of the tree in inorder traversal
+	 */
+	public String inOrderString() {
+		StringBuilder sb = new StringBuilder();
+		inOrderStringRecursive(root, sb);
+		return sb.toString().trim();
+	}
+	
+	private void inOrderStringRecursive(BSTNode node, StringBuilder sb) {
+		if (node == null) {
+			return;
+		}
+
+		inOrderStringRecursive(node.l, sb);
+		sb.append(node.item).append(" ");
+		inOrderStringRecursive(node.r, sb);
+	}
 
 	/**
 	 * Prints the Binary Search Tree using the preorder traversal.
@@ -263,6 +302,30 @@ public class BST<T extends Comparable<? super T>> implements BSTInterface<T> {
 	}
 
 	/**
+	 * Returns a string representation of the Binary Search Tree using the preorder
+	 * traversal.
+	 * 
+	 * Traversal order: root -> left -> right
+	 * 
+	 * @return a string representation of the tree in preorder traversal
+	 */
+	public String preOrderString() {
+		StringBuilder sb = new StringBuilder();
+		preOrderStringRecursive(root, sb);
+		return sb.toString().trim();
+	}
+	
+	private void preOrderStringRecursive(BSTNode node, StringBuilder sb) {
+		if (node == null) {
+			return;
+		}
+
+		sb.append(node.item).append(" ");
+		preOrderStringRecursive(node.l, sb);
+		preOrderStringRecursive(node.r, sb);
+	}
+	
+	/**
 	 * Prints the Binary Search Tree using the postorder traversal.
 	 * 
 	 * Traversal order: left -> right -> root
@@ -281,6 +344,30 @@ public class BST<T extends Comparable<? super T>> implements BSTInterface<T> {
 		printPostOrderRecursive(node.l);
 		printPostOrderRecursive(node.r);
 		System.out.println(node.item);
+	}
+	
+	/**
+	 * Returns a string representation of the Binary Search Tree using the postorder
+	 * traversal.
+	 * 
+	 * Traversal order: left -> right -> root
+	 * 
+	 * @return a string representation of the tree in postorder traversal
+	 */
+	public String postOrderString() {
+		StringBuilder sb = new StringBuilder();
+		postOrderStringRecursive(root, sb);
+		return sb.toString().trim();
+	}
+	
+	private void postOrderStringRecursive(BSTNode node, StringBuilder sb) {
+		if (node == null) {
+			return;
+		}
+
+		postOrderStringRecursive(node.l, sb);
+		postOrderStringRecursive(node.r, sb);
+		sb.append(node.item).append(" ");
 	}
 
 	/**
@@ -313,10 +400,20 @@ public class BST<T extends Comparable<? super T>> implements BSTInterface<T> {
 		size = 0;
 	}
 
+	/**
+	 * Returns the root node of the Binary Search Tree.
+	 * 
+	 * @return the root node, or null if the tree is empty
+	 */
 	public BSTNode getRoot() {
 		return root;
 	}
 
+	/**
+	 * Returns the item stored in the root node of the Binary Search Tree.
+	 * 
+	 * @return the item in the root node, or null if the tree is empty
+	 */
 	public T getRootItem() {
 		if (root == null) {
 			return null;

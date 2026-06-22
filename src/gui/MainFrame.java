@@ -26,7 +26,6 @@ public class MainFrame extends JFrame {
 		add(treePanel, BorderLayout.CENTER);
 
 		controlPanel.getAddButton().addActionListener(e -> {
-
 			try {
 				int value = Integer.parseInt(controlPanel.getInputField().getText());
 
@@ -36,7 +35,6 @@ public class MainFrame extends JFrame {
 				JOptionPane.showMessageDialog(this, "Enter a valid integer.", "Invalid Input",
 						JOptionPane.ERROR_MESSAGE);
 			}
-
 			controlPanel.getInputField().setText("");
 		});
 
@@ -76,6 +74,18 @@ public class MainFrame extends JFrame {
 			JOptionPane.showMessageDialog(this, "The smallest number is: " + bst.findMin());
 		});
 
+		controlPanel.getDisplayPreOrderButton().addActionListener(e -> {
+			JOptionPane.showMessageDialog(this, "Preorder: " + bst.preOrderString());
+		});
+		
+		controlPanel.getDisplayInOrderButton().addActionListener(e -> {
+			JOptionPane.showMessageDialog(this, "Inorder: " + bst.inOrderString());
+		});
+		
+		controlPanel.getDisplayPostOrderButton().addActionListener(e -> {
+			JOptionPane.showMessageDialog(this, "Postorder: " + bst.postOrderString());
+		});
+		
 		setVisible(true);
 	}
 }

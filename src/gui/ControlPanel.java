@@ -14,6 +14,9 @@ public class ControlPanel extends JPanel {
 	private JButton zoomOutButton;
 	private JButton findMaxButton;
 	private JButton findMinButton;
+	private JButton displayPreOrderButton;
+	private JButton displayInOrderButton;
+	private JButton displayPostOrderButton;
 
 	public ControlPanel() {
 		inputField = new JTextField(10);
@@ -24,6 +27,9 @@ public class ControlPanel extends JPanel {
 		zoomOutButton = new JButton("-");
 		findMaxButton = new JButton("Max");
 		findMinButton = new JButton("Min");
+		displayPreOrderButton = new JButton("Preorder");
+		displayInOrderButton = new JButton("Inorder");
+		displayPostOrderButton = new JButton("Postorder");
 
 		add(inputField);
 		add(addButton);
@@ -33,6 +39,9 @@ public class ControlPanel extends JPanel {
 		add(zoomOutButton);
 		add(findMaxButton);
 		add(findMinButton);
+		add(displayPreOrderButton);
+		add(displayInOrderButton);
+		add(displayPostOrderButton);
 
 	}
 
@@ -66,6 +75,18 @@ public class ControlPanel extends JPanel {
 	
 	public JButton getFindMinButton() {
 		return findMinButton;
+	}
+	
+	public JButton getDisplayPreOrderButton() {
+		return displayPreOrderButton;
+	}
+	
+	public JButton getDisplayInOrderButton() {
+		return displayInOrderButton;
+	}
+	
+	public JButton getDisplayPostOrderButton() {
+		return displayPostOrderButton;
 	}
 
 }
